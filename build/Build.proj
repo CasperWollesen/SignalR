@@ -233,6 +233,10 @@
              Properties="RunCodeAnalysis=true;Configuration=$(Configuration);ArtifactsDir=$(ArtifactsDir);SolutionDir=$(ProjectRoot)\;$(ExtraProperties)" />
   </Target>
 
+  <Target Name="AnalyzeLogs" DependsOnTargets="RunFunctionalTests">
+    <Exec Command="AnalyzeLogs.ps" ContinueOnError="true" />
+  </Target> 
+  
   <!-- Required to restore solution-level packages -->
   <Import Project="$(ProjectRoot)\.nuget\nuget.targets" />
 
